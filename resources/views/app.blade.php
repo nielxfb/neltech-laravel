@@ -29,6 +29,9 @@
                     <h4 class="mt-2">Filter by Category</h4>
                 </div>
                 <div class="card-body">
+                    @if ($categories->isEmpty())
+                        <div class="alert alert-danger">No categories found. Please run migrations and seeders</div>
+                    @endif
                     @foreach ($categories as $category)
                         <div class="form-check">
                             <input type="checkbox" name="category[]" value={{ $category->id }} class="form-check-input">
@@ -44,6 +47,9 @@
                     <a href="/" class="btn btn-danger">Reset</a>
                 </div>
             </form>
+            @if ($products->isEmpty())
+                <div class="alert alert-danger">No products found. Please run migrations and seeders</div>
+            @endif
             <div class="d-flex flex-row flex-wrap justify-content-start gap-3 w-100">
                 @foreach ($products as $product)
                     <x-card :product="$product" />
