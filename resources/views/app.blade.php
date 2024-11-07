@@ -47,10 +47,10 @@
                     <a href="/" class="btn btn-danger">Reset</a>
                 </div>
             </form>
-            @if ($products->isEmpty())
-                <div class="alert alert-danger">No products found. Please run migrations and seeders</div>
-            @endif
             <div class="d-flex flex-row flex-wrap justify-content-start gap-3 w-100">
+            @if ($products->isEmpty())
+                <div class="text text-danger text-center w-100">No products found.</div>
+            @endif
                 @foreach ($products as $product)
                     <x-card :product="$product" />
                 @endforeach
